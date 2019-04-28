@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd"
+        >
+    <dubbo:application name="transport-main"/>
+	<dubbo:registry protocol="zookeeper" address="192.168.0.35:2181" />
+<!-- 	<dubbo:registry address="N/A" />	 -->
+	<dubbo:consumer version="2.6.5"
+		timeout="10000" retries="0"
+		cluster="failfast" check="false" />
+	<dubbo:provider protocol="dubbo" port="20880"  timeout="10000" 
+		retries="0" cluster="failfast" accesslog="true" />
+		
+		
+	<import resource="classpath:dubbo/dubboServer.xml" />
+
+</beans>
