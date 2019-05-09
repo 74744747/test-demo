@@ -2,6 +2,8 @@ package org.jiuyescm.fescartest.transport.service;
 
 
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.jiuyescm.fescartest.transport.api.ITransportService;
@@ -47,6 +49,8 @@ public class TransportService implements ITransportService{
 	@Transactional
 	public int delete(Long id) throws BizException {
 		int count = this.transportMapper.delete(id);
+//		Map<String, Object> map = this.transportMapper.findTest(id);
+//		System.out.println(map);
 		return count;
 	}
 }

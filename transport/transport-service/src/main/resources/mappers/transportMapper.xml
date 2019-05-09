@@ -4,6 +4,9 @@
     <select id="findById" resultType="org.jiuyescm.fescartest.transport.api.vos.TransportVO">
         select t_base.* from tms_transport t_base where t_base.id=#{id}
     </select>
+    <select id="findTest" resultType="map">
+        select t_base.* from tms_transport_order t_base where t_base.id=#{id}
+    </select>
     
     <insert id="insert">
         insert into tms_transport(transport_no, order_id, order_no, route_id, route_no, update_dt)
