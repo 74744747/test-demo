@@ -1,7 +1,8 @@
-package org.jiuyescm.fescartest.order.service;
+package org.jiuyescm.fescartest.route.service;
 
-import org.jiuyescm.fescartest.order.api.IOrderService;
-import org.jiuyescm.fescartest.order.api.vos.OrderVO;
+
+import org.jiuyescm.fescartest.route.api.IRouteService;
+import org.jiuyescm.fescartest.route.api.vos.RouteVO;
 import org.springframework.stereotype.Service;
 
 import com.jiuyescm.fescartest.common.BizException;
@@ -11,23 +12,23 @@ import com.jiuyescm.fescartest.common.BizException;
  * @author jiuye
  *
  */
-@Service("orderService")
-public class OrderService implements IOrderService{
+@Service("routeService")
+public class RouteService implements IRouteService{
 
 	@Override
-	public void create(OrderVO vo) throws BizException {
+	public void create(RouteVO vo) throws BizException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public OrderVO query(OrderVO vo) throws BizException {
+	public RouteVO query(RouteVO vo) throws BizException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int update(OrderVO vo, Long id) throws BizException {
+	public int update(RouteVO vo, Long id) throws BizException {
 		// TODO Auto-generated method stub
 		return 0;
 	}

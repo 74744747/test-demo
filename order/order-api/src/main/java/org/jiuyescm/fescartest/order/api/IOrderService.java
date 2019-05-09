@@ -11,7 +11,7 @@ import com.jiuyescm.fescartest.common.BizException;
  */
 public interface IOrderService {
 	void create(OrderVO vo) throws BizException;
-	OrderVO get(OrderVO vo) throws BizException;
+	OrderVO query(OrderVO vo) throws BizException;
 	int update(OrderVO vo, Long id) throws BizException;
 	int delete(Long id) throws BizException;
 }
