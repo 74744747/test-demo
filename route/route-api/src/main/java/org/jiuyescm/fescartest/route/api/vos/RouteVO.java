@@ -10,5 +10,23 @@ public class RouteVO extends BaseVO {
 	private Long id;
 	private String routeNo;
 	private Timestamp updateDt;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getRouteNo() {
+		return routeNo;
+	}
+	public void setRouteNo(String routeNo) {
+		this.routeNo = routeNo;
+	}
+	public Timestamp getUpdateDt() {
+		return updateDt;
+	}
+	public void setUpdateDt(Timestamp updateDt) {
+		this.updateDt = updateDt;
+	}
 
 }

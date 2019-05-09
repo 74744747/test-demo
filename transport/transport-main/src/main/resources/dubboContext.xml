@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/util/spring-util.xsd"
         >
     <context:property-placeholder ignore-unresolvable="true" location="classpath:config.properties"/>
-    <dubbo:application name="route-main"/>
+    <dubbo:application name="transport-main"/>
 	<dubbo:registry id="provider1" protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" />
 <!-- 	<dubbo:registry address="N/A" />	 -->
 	<dubbo:protocol id="dubboProtocol" name="dubbo" port="${dubbo.provider.port}" />
