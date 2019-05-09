@@ -1,9 +1,14 @@
 package org.jiuyescm.fescartest.transport.service;
 
 
+
+import javax.annotation.Resource;
+
 import org.jiuyescm.fescartest.transport.api.ITransportService;
 import org.jiuyescm.fescartest.transport.api.vos.TransportVO;
+import org.jiuyescm.fescartest.transport.mapper.TransportMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jiuyescm.fescartest.common.BizException;
 
@@ -13,29 +18,35 @@ import com.jiuyescm.fescartest.common.BizException;
  *
  */
 @Service("transportService")
+@Transactional(readOnly=true)
 public class TransportService implements ITransportService{
-
+	@Resource
+	private TransportMapper transportMapper;
+	
+	
 	@Override
+	@Transactional
 	public void create(TransportVO vo) throws BizException {
-		// TODO Auto-generated method stub
-		
+		this.transportMapper.insert(vo);
 	}
 
 	@Override
-	public TransportVO query(TransportVO vo) throws BizException {
-		// TODO Auto-generated method stub
-		return null;
+	public TransportVO findById(Long id) throws BizException {
+		return this.transportMapper.findById(id);
 	}
 
 	@Override
+	@Transactional
 	public int update(TransportVO vo, Long id) throws BizException {
-		// TODO Auto-generated method stub
-		return 0;
+		vo.setId(id);
+		int count = this.transportMapper.update(vo);
+		return count;
 	}
 
 	@Override
+	@Transactional
 	public int delete(Long id) throws BizException {
-		// TODO Auto-generated method stub
-		return 5;
+		int count = this.transportMapper.delete(id);
+		return count;
 	}
 }

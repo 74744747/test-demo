@@ -7,7 +7,6 @@ import com.jiuyescm.fescartest.common.beans.BaseVO;
 public class TransportVO extends BaseVO {
 
 	private static final long serialVersionUID = -3215078667458305321L;
-	private Long id;
 	private String transportNo;
 	private Long orderId;
 	private String orderNo;
@@ -39,12 +38,6 @@ public class TransportVO extends BaseVO {
 	}
 	public void setRouteNo(String routeNo) {
 		this.routeNo = routeNo;
-	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
 	}
 	public String getTransportNo() {
 		return transportNo;
