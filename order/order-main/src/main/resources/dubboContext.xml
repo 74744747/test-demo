@@ -13,14 +13,15 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd"
         >
-    <dubbo:application name="transport-main"/>
-	<dubbo:registry protocol="zookeeper" address="192.168.0.35:2181" />
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:config.properties"/>
+    <dubbo:application name="order-main"/>
+	<dubbo:registry id="provider1" protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" />
 <!-- 	<dubbo:registry address="N/A" />	 -->
-	<dubbo:consumer version="2.6.5"
-		timeout="10000" retries="0"
-		cluster="failfast" check="false" />
-	<dubbo:provider protocol="dubbo" port="20880"  timeout="10000" 
-		retries="0" cluster="failfast" accesslog="true" />
+<!-- 	<dubbo:consumer version="2.6.5" -->
+<!-- 		timeout="10000" retries="0" -->
+<!-- 		cluster="failfast" check="false" /> -->
+	<dubbo:protocol id="dubboProtocol" name="dubbo" port="${dubbo.provider.port}" />
+	<dubbo:provider registry="provider1" protocol="dubboProtocol"    />
 		
 		
 	<import resource="classpath:dubbo/dubboServer.xml" />

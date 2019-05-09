@@ -7,5 +7,5 @@
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         ">
 
-<dubbo:service interface="org.jiuyescm.fescartest.order.api.IOrderService" ref="orderService"/>
+<dubbo:service interface="org.jiuyescm.fescartest.order.api.IOrderService" ref="orderService" version="1.0.0"/>
 </beans>
