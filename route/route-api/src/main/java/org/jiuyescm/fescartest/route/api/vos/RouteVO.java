@@ -7,13 +7,14 @@ import com.jiuyescm.fescartest.common.beans.BaseVO;
 public class RouteVO extends BaseVO {
 
 	private static final long serialVersionUID = -3215078667458305321L;
-	private String routeNo;
+	private String weight;
 	private Timestamp updateDt;
-	public String getRouteNo() {
-		return routeNo;
+	
+	public String getWeight() {
+		return weight;
 	}
-	public void setRouteNo(String routeNo) {
-		this.routeNo = routeNo;
+	public void setWeight(String weight) {
+		this.weight = weight;
 	}
 	public Timestamp getUpdateDt() {
 		return updateDt;

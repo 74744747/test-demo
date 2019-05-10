@@ -9,8 +9,8 @@
     </select>
     
     <insert id="insert">
-        insert into tms_transport(transport_no, order_id, order_no, route_id, route_no, update_dt)
-        values(#{transportNo}, #{orderId}, #{orderNo}, #{routeId}, #{routeNo}, now())
+        insert into tms_transport(weight, order_id,  route_id,  update_dt)
+        values(#{weight}, #{orderId}, #{routeId}, now())
     </insert>
     <delete id="delete">
         delete from tms_transport where id=#{id}
@@ -18,10 +18,9 @@
     <update id="update">
         update tms_transport set 
         <set>
-        	<if test="transportNo != null">transport_no=#{transportNo},</if>
         	<if test="orderId != null">order_id=#{orderId},</if>
-        	<if test="orderNo != null">order_no=#{orderNo},</if>
         	<if test="routeId != null">route_id=#{routeId},</if>
+        	<if test="weight != null">weight=#{weight},</if>
         	<if test="updateDt != null">update_dt=#{updateDt},</if>
         </set>
         where id=#{id}

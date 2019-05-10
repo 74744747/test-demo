@@ -7,43 +7,29 @@ import com.jiuyescm.fescartest.common.beans.BaseVO;
 public class TransportVO extends BaseVO {
 
 	private static final long serialVersionUID = -3215078667458305321L;
-	private String transportNo;
 	private Long orderId;
-	private String orderNo;
 	private Long routeId;
-	private String routeNo;
+	private Integer weight;
 	private Timestamp updateDt;
 	
 	
+	public Integer getWeight() {
+		return weight;
+	}
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
 	public Long getOrderId() {
 		return orderId;
 	}
 	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
-	public String getOrderNo() {
-		return orderNo;
-	}
-	public void setOrderNo(String orderNo) {
-		this.orderNo = orderNo;
-	}
 	public Long getRouteId() {
 		return routeId;
 	}
 	public void setRouteId(Long routeId) {
 		this.routeId = routeId;
-	}
-	public String getRouteNo() {
-		return routeNo;
-	}
-	public void setRouteNo(String routeNo) {
-		this.routeNo = routeNo;
-	}
-	public String getTransportNo() {
-		return transportNo;
-	}
-	public void setTransportNo(String transportNo) {
-		this.transportNo = transportNo;
 	}
 	public Timestamp getUpdateDt() {
 		return updateDt;

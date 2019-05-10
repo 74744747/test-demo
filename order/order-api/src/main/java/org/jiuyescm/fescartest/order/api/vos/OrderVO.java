@@ -7,13 +7,14 @@ import com.jiuyescm.fescartest.common.beans.BaseVO;
 public class OrderVO extends BaseVO {
 
 	private static final long serialVersionUID = -3215078667458305321L;
-	private String orderNo;
+	private Integer weight;
 	private Timestamp updateDt;
-	public String getOrderNo() {
-		return orderNo;
+	
+	public Integer getWeight() {
+		return weight;
 	}
-	public void setOrderNo(String orderNo) {
-		this.orderNo = orderNo;
+	public void setWeight(Integer weight) {
+		this.weight = weight;
 	}
 	public Timestamp getUpdateDt() {
 		return updateDt;

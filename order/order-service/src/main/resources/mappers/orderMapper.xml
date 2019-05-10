@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jiuyescm.fescartest.order.mapper.OrderMapper">
+    <select id="findById" resultType="org.jiuyescm.fescartest.order.api.vos.OrderVO">
+        select t_base.* from tms_order t_base where t_base.id=#{id}
+    </select>
+    
+    <insert id="insert">
+        insert into tms_order( weight, update_dt)
+        values( #{weight}, now())
+    </insert>
+    <delete id="delete">
+        delete from tms_order where id=#{id}
+    </delete>
+    <update id="update">
+        update tms_order set 
+        <set>
+        	<if test="weight != null">weight=#{weight},</if>
+        	<if test="updateDt != null">update_dt=#{updateDt},</if>
+        </set>
+        where id=#{id}
+    </update>
+</mapper>

@@ -12,7 +12,7 @@ import com.jiuyescm.fescartest.common.BizException;
  */
 public interface IRouteService {
 	void create(RouteVO vo) throws BizException;
-	RouteVO query(RouteVO vo) throws BizException;
+	RouteVO findById(Long id) throws BizException;
 	int update(RouteVO vo, Long id) throws BizException;
 	int delete(Long id) throws BizException;
 }
