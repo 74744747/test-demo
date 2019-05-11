@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.jiuyescm.fescartest.transport.mapper.TransportMapper">
+	<resultMap id="baseResultMap" type="org.jiuyescm.fescartest.transport.api.vos.TransportVO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <id column="order_id" property="orderId" jdbcType="BIGINT" />
+        <id column="route_id" property="routeId" jdbcType="BIGINT" />
+	    <result column="weight" property="weight" jdbcType="INTEGER" />
+	    <result column="update_dt" property="updateDt" jdbcType="TIMESTAMP" />
+    </resultMap>
     <select id="findById" resultType="org.jiuyescm.fescartest.transport.api.vos.TransportVO">
         select t_base.* from tms_transport t_base where t_base.id=#{id}
     </select>
@@ -16,7 +23,7 @@
         delete from tms_transport where id=#{id}
     </delete>
     <update id="update">
-        update tms_transport set 
+        update tms_transport  
         <set>
         	<if test="orderId != null">order_id=#{orderId},</if>
         	<if test="routeId != null">route_id=#{routeId},</if>

@@ -18,9 +18,16 @@
 	<dubbo:registry id="provider1" protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" />
 <!-- 	<dubbo:registry address="N/A" />	 -->
 	<dubbo:protocol id="dubboProtocol" name="dubbo" port="${dubbo.provider.port}" />
-	<dubbo:provider registry="provider1" protocol="dubboProtocol"    />
+	<dubbo:provider registry="provider1" protocol="dubboProtocol"   version="1.0.0" />
+	<dubbo:consumer version="1.0.0" />
 		
-		
+	<import resource="classpath:dubbo/dubboClient-omc.xml" />
+	<import resource="classpath:dubbo/dubboClient-rmc.xml" />
 	<import resource="classpath:dubbo/dubboServer.xml" />
+	
+	<bean class="io.seata.spring.annotation.GlobalTransactionScanner">
+        <constructor-arg value="transport-main"/>
+        <constructor-arg value="my_test_tx_group"/>
+    </bean>
 
 </beans>

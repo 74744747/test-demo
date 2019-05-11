@@ -22,5 +22,9 @@
 		
 		
 	<import resource="classpath:dubbo/dubboServer.xml" />
+	<bean class="io.seata.spring.annotation.GlobalTransactionScanner">
+        <constructor-arg value="route-main"/>
+        <constructor-arg value="my_test_tx_group"/>
+    </bean>
 
 </beans>

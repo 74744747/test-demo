@@ -17,4 +17,17 @@ public interface ITransportService {
 	TransportVO findById(Long id) throws BizException;
 	int update(TransportVO vo, Long id) throws BizException;
 	int delete(Long id) throws BizException;
+	
+	/**
+	 * 提货
+	 * @return
+	 * @throws BizException
+	 */
+	boolean pickup(Long id, Integer weight)throws BizException;
+	/**
+	 * 送货到达
+	 * @return
+	 * @throws BizException
+	 */
+	boolean delivery(Long id, Integer weight)throws BizException;
 }
