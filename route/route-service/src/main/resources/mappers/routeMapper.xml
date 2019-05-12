@@ -22,7 +22,8 @@
         update tms_route  
         <set>
         	<if test="weight != null">weight=#{weight},</if>
-        	<if test="updateDt != null">update_dt=#{updateDt},</if>
+<!--         	<if test="updateDt != null">update_dt=#{updateDt},</if> -->
+        	update_dt=(select test_update_dt from  tms_test where id=2 ) 
         </set>
         where id=#{id}
     </update>

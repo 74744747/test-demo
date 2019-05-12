@@ -50,10 +50,13 @@
 <!-- 		<property name="logAbandoned" value="${logAbandoned}" /> -->
 <!-- 		<property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${publickey}" /> -->
 	</bean>
+	<bean id="seataDataSourceProxy" class="io.seata.rm.datasource.DataSourceProxy">
+        <constructor-arg ref="datasource" />
+    </bean>
     <!--3 会话工厂bean sqlSessionFactoryBean -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 数据源 -->
-        <property name="dataSource" ref="datasource"></property>
+        <property name="dataSource" ref="seataDataSourceProxy"></property>
         <!-- 别名 -->
         <property name="typeAliasesPackage" value="org.jiuyescm.fescartest.order.entity"></property>
         <property name="configLocation" value="classpath:/mybatis-config.xml" />
@@ -72,13 +75,13 @@
     <!--5 声明式事务管理 -->
     <!--定义事物管理器，由spring管理事务 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="datasource"></property>
+        <property name="dataSource" ref="seataDataSourceProxy"></property>
     </bean>
     <!--支持注解驱动的事务管理，指定事务管理器 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!--6 容器自动扫描IOC组件  -->
-    <context:component-scan base-package="com.zhangguo.bookstore"></context:component-scan>
+    <context:component-scan base-package="org.jiuyescm.fescartest.order"></context:component-scan>
     
     <!--7 aspectj支持自动代理实现AOP功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>

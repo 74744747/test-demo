@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jiuyescm.fescartest.common.BizException;
 
 import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
 
 /**
  * 
@@ -38,6 +39,7 @@ public class OrderService implements IOrderService{
 	}
 
 	@Override
+	@GlobalTransactional(timeoutMills = 300000, name = "dubbo-demo-tx")
 	@Transactional
 	public int update(OrderVO vo, Long id) throws BizException {
 		log.warn("purchase begin ... xid: " + RootContext.getXID());

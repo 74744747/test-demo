@@ -1,6 +1,9 @@
 package org.jiuyescm.fescartest.route.service;
 
 
+import java.sql.Timestamp;
+import java.util.Calendar;
+
 import javax.annotation.Resource;
 
 import org.jiuyescm.fescartest.route.api.IRouteService;
@@ -40,11 +43,12 @@ public class RouteService implements IRouteService{
 	}
 
 	@Override
-//	@GlobalTransactional
+	@GlobalTransactional(timeoutMills = 300000, name = "dubbo-demo-tx")
 	@Transactional
 	public int update(RouteVO vo, Long id) throws BizException {
 		log.warn("purchase begin ... xid: " + RootContext.getXID());
 		vo.setId(id);
+//		vo.setUpdateDt(new Timestamp(Calendar.getInstance().getTimeInMillis()));
 		int count = this.routeMapper.update(vo);
 		if(count != 1){
 			BizException e = new BizException("error", "修改派车单失败。");
