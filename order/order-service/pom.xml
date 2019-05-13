@@ -7,9 +7,7 @@
     <artifactId>order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.jiuyescm.fescartest</groupId>
   <artifactId>order-service</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>order-service</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -60,8 +58,8 @@
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.38</version>
-<!--         <version>8.0.12</version> -->
+<!--         <version>5.1.38</version> -->
+        <version>8.0.12</version>
     </dependency>
     <dependency>
         <groupId>org.mybatis</groupId>
