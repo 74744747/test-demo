@@ -30,12 +30,22 @@
     <dependency>
       <groupId>io.seata</groupId>
       <artifactId>seata-spring</artifactId>
-      <version>0.5.1</version>
+      <version>0.7.1</version>
+      <exclusions>
+		<exclusion>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-core</artifactId>
+		</exclusion>
+		<exclusion>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		</exclusion>
+	  </exclusions>
     </dependency>
     <dependency>
       <groupId>io.seata</groupId>
       <artifactId>seata-dubbo-alibaba</artifactId>
-      <version>0.5.1</version>
+      <version>0.7.1</version>
     </dependency>
     
     
@@ -92,4 +102,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+
 </project>
